@@ -1,0 +1,29 @@
+/* Стили для синхронизации прокрутки нумерации строк и текстового поля */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: #a0aec0 #edf2f7;
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #a0aec0;
+  border-radius: 4px;
+  border: 2px solid #edf2f7;
+}
+
+/* Скрываем скроллбар у нумерации, так как он будет управляться textarea */
+.absolute.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.absolute.overflow-y-auto {
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;  /* Firefox */
+}
