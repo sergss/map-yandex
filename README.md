@@ -57,3 +57,52 @@ npm run build
 ```
 
 Собранные файлы будут в директории `dist/`.
+
+## Деплой на GitHub Pages
+
+### Первоначальная настройка
+
+1. Создайте репозиторий на GitHub (например, `map-yandex`)
+
+2. Если название вашего репозитория отличается от `map-yandex`, отредактируйте скрипт `deploy` в package.json:
+   ```json
+   "deploy": "ng build --configuration=production --base-href /ваше-название-репозитория/ && npx angular-cli-ghpages --dir=dist"
+   ```
+
+3. Свяжите локальный репозиторий с GitHub:
+   ```bash
+   git remote add origin https://github.com/ваш-username/map-yandex.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+### Деплой приложения
+
+```bash
+npm run deploy
+```
+
+Эта команда:
+1. Соберёт приложение для production
+2. Автоматически создаст ветку `gh-pages`
+3. Задеплоит собранные файлы на GitHub Pages
+
+### Настройка GitHub Pages
+
+После первого деплоя:
+1. Перейдите в настройки репозитория на GitHub
+2. Откройте раздел **Pages** (Settings → Pages)
+3. В разделе **Source** выберите ветку `gh-pages` и папку `/ (root)`
+4. Нажмите **Save**
+
+Через несколько минут ваше приложение будет доступно по адресу:
+```
+https://ваш-username.github.io/map-yandex/
+```
+
+### Последующие обновления
+
+Для обновления приложения просто выполните:
+```bash
+npm run deploy
+```

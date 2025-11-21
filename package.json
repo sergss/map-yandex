@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
-    "preview": "ng serve --configuration=production"
+    "preview": "ng serve --configuration=production",
+    "deploy": "ng build --configuration=production --base-href /map-yandex/ && npx angular-cli-ghpages --dir=dist"
   },
   "dependencies": {
     "rxjs": "^7.8.2",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "~5.9.0"
+    "typescript": "~5.9.0",
+    "angular-cli-ghpages": "^2.0.1"
   }
 }
